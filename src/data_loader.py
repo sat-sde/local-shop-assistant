@@ -5,9 +5,15 @@ Loads and validates the shop CSV data file.
 
 Public API
 ----------
-load_data(filepath) -> (DataFrame, issues_list)
+load_data(source) -> (DataFrame, issues_list)
+
+``source`` may be:
+  - a string file path (used when loading the default bundled CSV), or
+  - a file-like object (used when the user uploads a CSV via Streamlit's
+    st.file_uploader, which returns an UploadedFile / BytesIO object).
 """
 
+import io
 import os
 import pandas as pd
 
@@ -23,13 +29,14 @@ REQUIRED_COLUMNS = [
 ]
 
 
-def load_data(filepath: str) -> tuple[pd.DataFrame, list[str]]:
+def load_data(source) -> tuple[pd.DataFrame, list[str]]:
     """Load and validate the stock/sales CSV file.
 
     Parameters
     ----------
-    filepath : str
-        Absolute or relative path to the CSV file.
+    source : str | file-like object
+        Either a file path string (default CSV) or a file-like object
+        (Streamlit UploadedFile / BytesIO from a file upload).
 
     Returns
     -------
@@ -42,7 +49,7 @@ def load_data(filepath: str) -> tuple[pd.DataFrame, list[str]]:
     Raises
     ------
     FileNotFoundError
-        If *filepath* does not exist on disk.
+        If *source* is a string path that does not exist on disk.
     ValueError
         If the file is not parseable as CSV, or if one or more required
         columns are missing.
@@ -51,22 +58,26 @@ def load_data(filepath: str) -> tuple[pd.DataFrame, list[str]]:
     issues: list[str] = []
 
     # ------------------------------------------------------------------
-    # 1. File-existence check
+    # 1. File-existence check (only relevant for string paths)
+    #    When source is a file-like object (Streamlit upload), skip this —
+    #    the bytes are already in memory.
     # ------------------------------------------------------------------
-    if not os.path.exists(filepath):
+    is_path = isinstance(source, (str, os.PathLike))
+    if is_path and not os.path.exists(source):
         raise FileNotFoundError(
-            f"CSV file not found: '{filepath}'. "
+            f"CSV file not found: '{source}'. "
             "Please check the path and try again."
         )
 
     # ------------------------------------------------------------------
-    # 2. Parse CSV
+    # 2. Parse CSV — works with both string paths and file-like objects
     # ------------------------------------------------------------------
     try:
-        df = pd.read_csv(filepath)
+        df = pd.read_csv(source)
     except Exception as exc:
+        label = source if is_path else "uploaded file"
         raise ValueError(
-            f"Could not parse '{filepath}' as a CSV file. "
+            f"Could not parse '{label}' as a CSV file. "
             f"Original error: {exc}"
         ) from exc
 

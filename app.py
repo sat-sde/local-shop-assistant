@@ -86,11 +86,13 @@ st.info(
 )
 
 # ── Data loading ──────────────────────────────────────────────────────────────
-# Determine the data source: uploaded file or the bundled default CSV
+# Determine the data source: uploaded file bytes or the bundled default CSV path.
+# Streamlit's UploadedFile is a file-like object — pandas can read it directly.
+# When no file is uploaded, we pass the string path to the default CSV.
 if uploaded_file is not None:
-    data_source = uploaded_file          # Streamlit UploadedFile object
+    data_source = uploaded_file   # file-like object; pandas.read_csv accepts this
 else:
-    data_source = "data/raw/stock_sales_raw.csv"   # Path to default CSV
+    data_source = "data/raw/stock_sales_raw.csv"   # string path to default CSV
 
 # Load and validate the data; display any validation warnings
 try:
