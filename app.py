@@ -114,16 +114,16 @@ tab_dashboard, tab_sales, tab_inventory, tab_restock = st.tabs(
 
 # Dashboard tab — high-level KPI summary
 with tab_dashboard:
-    dashboard.render(df, min_threshold=min_threshold, lead_days=lead_days)
+    dashboard.render_dashboard(df, issues)
 
 # Sales Analysis tab — product-level and time-series sales breakdown
 with tab_sales:
-    sales.render(df)
+    sales.render_sales(df)
 
 # Inventory tab — current stock levels and low-stock alerts
 with tab_inventory:
-    inventory.render(df, min_threshold=min_threshold)
+    inventory.render_inventory(df, min_threshold=min_threshold)
 
 # Restock Suggestions tab — data-driven reorder recommendations
 with tab_restock:
-    restock.render(df, min_threshold=min_threshold, lead_days=lead_days)
+    restock.render_restock(df, min_threshold=min_threshold, lead_days=lead_days)
