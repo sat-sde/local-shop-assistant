@@ -34,8 +34,8 @@ with st.sidebar:
 
     # Hint shown when no file is uploaded
     st.markdown(
-        "_No file uploaded? The app loads the default data from "
-        "`data/raw/stock_sales_raw.csv`_"
+        "_No file uploaded? The app loads default data from `data.csv` "
+        "or `data/raw/stock_sales_raw.csv`._"
     )
 
     st.divider()
@@ -86,11 +86,14 @@ st.info(
 )
 
 # ── Data loading ──────────────────────────────────────────────────────────────
-# Determine the data source: uploaded file bytes or the bundled default CSV path.
+import os
+
+# Determine the data source: uploaded file bytes or a local CSV path.
 # Streamlit's UploadedFile is a file-like object — pandas can read it directly.
-# When no file is uploaded, we pass the string path to the default CSV.
 if uploaded_file is not None:
     data_source = uploaded_file   # file-like object; pandas.read_csv accepts this
+elif os.path.exists("data.csv"):
+    data_source = "data.csv"
 else:
     data_source = "data/raw/stock_sales_raw.csv"   # string path to default CSV
 
