@@ -1,0 +1,25 @@
+date,item_name,category,quantity_sold,price_per_unit_inr,total_inr,stock_remaining
+2026-11-10,Rice (1kg),Staples,5,52,260,45
+2026-11-10,Toor Dal (500g),Staples,3,65,195,22
+2026-11-10,Sunflower Oil (1L),Staples,2,135,270,10
+2026-11-10,Parle-G Biscuits,Snacks,8,10,80,60
+2026-11-10,Surf Excel (small),Household,4,22,88,30
+2026-11-10,Colgate Toothpaste (100g),Personal Care,2,54,108,18
+2026-11-10,Amul Butter (100g),Dairy,3,56,168,8
+2026-11-10,Haldiram Namkeen,Snacks,1,30,30,15
+2026-11-11,Rice (1kg),Staples,6,52,312,39
+2026-11-11,Toor Dal (500g),Staples,2,65,130,20
+2026-11-11,Sunflower Oil (1L),Staples,1,135,135,9
+2026-11-11,Parle-G Biscuits,Snacks,12,10,120,48
+2026-11-11,Lifebuoy Soap,Personal Care,5,32,160,25
+2026-11-11,Maggi Noodles (2-pack),Snacks,7,28,196,33
+2026-11-11,Amul Butter (100g),Dairy,2,56,112,6
+2026-11-11,Sugar (1kg),Staples,4,44,176,28
+2026-11-12,Rice (1kg),Staples,4,52,208,35
+2026-11-12,Toor Dal (500g),Staples,5,65,325,15
+2026-11-12,Parle-G Biscuits,Snacks,10,10,100,38
+2026-11-12,Surf Excel (small),Household,3,22,66,27
+2026-11-12,Maggi Noodles (2-pack),Snacks,6,28,168,27
+2026-11-12,Colgate Toothpaste (100g),Personal Care,1,54,54,17
+2026-11-12,Sunflower Oil (1L),Staples,3,135,405,6
+2026-11-12,Sugar (1kg),Staples,2,44,88,26
