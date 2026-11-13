@@ -114,10 +114,14 @@ local-shop-assistant/
 ├── README.md                     ← This file
 ├── research.md                   ← Problem analysis, existing solutions, sources
 ├── fieldwork.md                  ← Scenario documentation
+├── data.csv                      ← Input sales & inventory data
+│
+├── ai-chats/                     ← Exported AI development logs
+│   └── chat-history.md
 │
 ├── data/
 │   └── raw/
-│       └── stock_sales_raw.csv   ← Input data (replace with real data)
+│       └── stock_sales_raw.csv   ← Raw input data copy
 │
 └── src/                          ← All application logic
     ├── __init__.py
@@ -387,7 +391,9 @@ f5bacfe  Add full Streamlit app: data_loader, analysis, components, app.py, READ
 | [`README.md`](README.md) | This file — full project documentation |
 | [`research.md`](research.md) | Problem analysis, existing solutions, credible sources |
 | [`fieldwork.md`](fieldwork.md) | Scenario documentation with full disclosure |
-| [`data/raw/stock_sales_raw.csv`](data/raw/stock_sales_raw.csv) | Input data |
+| [`data.csv`](data.csv) | Primary input dataset |
+| [`data/raw/stock_sales_raw.csv`](data/raw/stock_sales_raw.csv) | Raw input data copy |
+| [`ai-chats/chat-history.md`](ai-chats/chat-history.md) | Exported AI conversation development history |
 
 ---
 
