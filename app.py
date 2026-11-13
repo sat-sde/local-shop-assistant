@@ -14,7 +14,7 @@ from src.components import dashboard, sales, inventory, restock
 
 # ── Page configuration (must be the first Streamlit call) ────────────────────
 st.set_page_config(
-    title="Local Shop Assistant",
+    page_title="Local Shop Assistant",
     page_icon="🛒",
     layout="wide",
 )

@@ -42,7 +42,8 @@ def render_inventory(df: pd.DataFrame, min_threshold: int) -> None:
     # the shopkeeper can spot problems at a glance without reading every number.
     def highlight_low_stock(row: pd.Series) -> list[str]:
         """Return red background style for every cell in rows below threshold."""
-        if row["current_stock"] < min_threshold:
+        val = row.get("Stock Remaining", row.get("current_stock", 0))
+        if val < min_threshold:
             return ["background-color: #FFCCCC"] * len(row)
         return [""] * len(row)
 
