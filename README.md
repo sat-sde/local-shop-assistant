@@ -1,12 +1,4 @@
 # 🛒 Local Shop Stock & Sales Assistant
-
-> **B.Tech 1-Day Take-Home Assignment — Python Application Development**
->
-> ⚠️ **Disclosure:** This project is built on a **representative hypothetical scenario**
-> for a small Indian kirana store. No real shopkeeper data is used.
-> The scenario reflects common, well-documented challenges in Indian small retail.
-> Replace `data/raw/stock_sales_raw.csv` with your own CSV file to analyse real data.
-
 ---
 
 ## 1. Problem Statement
